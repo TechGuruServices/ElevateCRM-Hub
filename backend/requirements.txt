@@ -36,3 +36,7 @@ pytest-cov==4.1.0
 # Utilities
 python-dotenv==1.0.0
 tenacity==8.2.3
+
+# Email & Notifications
+resend==2.0.0
+email-validator>=2.0.0

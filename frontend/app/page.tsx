@@ -45,6 +45,118 @@ export default function Home() {
                 View Demo
               </Link>
             </div>
+          <form
+            action="/api/public/waitlist"
+            method="POST"
+            className="signup"
+            style={{
+              display: "grid",
+              gap: "10px",
+              gridTemplateColumns: "1fr 1fr auto",
+              maxWidth: "720px",
+              margin: "0 auto",
+              width: "100%",
+            }}
+          >
+            <input
+              type="text"
+              name="website"
+              style={{
+                position: "absolute",
+                left: "-9999px",
+                opacity: 0,
+              }}
+              tabIndex={-1}
+              autoComplete="off"
+            />
+            <div>
+              <label
+                htmlFor="name"
+                style={{ fontSize: "12px", fontWeight: 600, margin: "2px" }}
+              >
+                Full name
+              </label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                placeholder="Alex Johnson"
+                style={{
+                  width: "100%",
+                  padding: "12px 14px",
+                  borderRadius: "12px",
+                  border: "1px solid #e2e8f0",
+                }}
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="email"
+                style={{ fontSize: "12px", fontWeight: 600, margin: "2px" }}
+              >
+                Work email
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                autoComplete="email"
+                placeholder="alex@company.com"
+                style={{
+                  width: "100%",
+                  padding: "12px 14px",
+                  borderRadius: "12px",
+                  border: "1px solid #e2e8f0",
+                }}
+              />
+            </div>
+            <button
+              type="submit"
+              style={{
+                alignSelf: "end",
+                padding: "12px 18px",
+                borderRadius: "14px",
+                border: 0,
+                color: "#fff",
+                fontWeight: 700,
+                background: "linear-gradient(90deg,#00c2ff,#7c3aed)",
+                boxShadow: "0 10px 28px rgba(124,58,237,.35)",
+              }}
+            >
+              Join Private Beta
+            </button>
+            <div
+              style={{
+                gridColumn: "1 / -1",
+                display: "flex",
+                gap: "10px",
+                alignItems: "flex-start",
+                font: "12px system-ui",
+                color: "#475569",
+              }}
+            >
+              <input
+                id="consent"
+                name="consent"
+                type="checkbox"
+                value="yes"
+                required
+                style={{
+                  width: "18px",
+                  height: "18px",
+                  marginTop: "2px",
+                  border: "1px solid #e2e8f0",
+                  borderRadius: "6px",
+                }}
+              />
+              <label htmlFor="consent">
+                I agree to the <a href="/terms">Terms</a> and <a href="/privacy">Privacy Policy</a>. Send me product updates and beta invites.
+              </label>
+            </div>
+          </form>
+
           </div>
 
           {/* Features Grid */}

@@ -15,6 +15,7 @@ from app.api.v1.api import api_router
 from app.api.v1.health import router as health_router
 from app.middleware.tenant import TenantMiddleware
 from app.middleware.security import SecurityMiddleware
+from app.waitlist import router as waitlist_router
 
 # Configure logging
 logging.basicConfig(
@@ -118,6 +119,7 @@ if settings.DEBUG:
 # Include routers
 app.include_router(health_router, tags=["Health"])
 app.include_router(api_router, prefix="/api")
+app.include_router(waitlist_router, prefix="/api", tags=["public"])
 
 # Global exception handler
 @app.exception_handler(Exception)
