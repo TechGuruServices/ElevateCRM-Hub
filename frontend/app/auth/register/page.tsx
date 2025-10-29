@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Select } from '@/components/ui/select'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Eye, EyeOff, Mail, Lock, User, Building, ArrowRight, Check, Sparkles } from 'lucide-react'
@@ -224,17 +224,15 @@ export default function RegisterPage() {
                     <label className="text-sm font-medium text-slate-700 dark:text-slate-300">
                       Industry
                     </label>
-                    <Select
-                      value={formData.industry}
-                      onChange={(e) => handleInputChange('industry', e.target.value)}
-                      className="focus:border-green-500 dark:focus:border-green-400 focus:ring-green-500/20"
-                      placeholder="Select your industry"
-                      label="Industry"
-                      required
-                    >
-                      {industries.map((industry) => (
-                        <option key={industry} value={industry}>{industry}</option>
-                      ))}
+                    <Select value={formData.industry} onValueChange={(value) => handleInputChange('industry', value)} required>
+                      <SelectTrigger className="h-12 bg-white/50 dark:bg-slate-700/50 border-slate-200 dark:border-slate-600 focus:border-green-500 dark:focus:border-green-400">
+                        <SelectValue placeholder="Select your industry" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {industries.map((industry) => (
+                          <SelectItem key={industry} value={industry}>{industry}</SelectItem>
+                        ))}
+                      </SelectContent>
                     </Select>
                   </div>
 
@@ -242,17 +240,15 @@ export default function RegisterPage() {
                     <label className="text-sm font-medium text-slate-700 dark:text-slate-300">
                       Company Size
                     </label>
-                    <Select
-                      value={formData.companySize}
-                      onChange={(e) => handleInputChange('companySize', e.target.value)}
-                      className="focus:border-green-500 dark:focus:border-green-400 focus:ring-green-500/20"
-                      placeholder="Select company size"
-                      label="Company Size"
-                      required
-                    >
-                      {companySizes.map((size) => (
-                        <option key={size} value={size}>{size}</option>
-                      ))}
+                    <Select value={formData.companySize} onValueChange={(value) => handleInputChange('companySize', value)} required>
+                      <SelectTrigger className="h-12 bg-white/50 dark:bg-slate-700/50 border-slate-200 dark:border-slate-600 focus:border-green-500 dark:focus:border-green-400">
+                        <SelectValue placeholder="Select company size" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {companySizes.map((size) => (
+                          <SelectItem key={size} value={size}>{size}</SelectItem>
+                        ))}
+                      </SelectContent>
                     </Select>
                   </div>
 
